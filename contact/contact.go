@@ -66,7 +66,8 @@ func NewEngine() *Engine {
 	return &Engine{HttpClient: NewHttpClient(time.Minute)}
 }
 
-func (e *Engine) CreateContact(request *CreateRequest) (response *CreateResponse, err error) {
-	err = e.HttpClient.SendPostRequest("Create", request, response)
+func (e *Engine) CreateContact(request *CreateRequest) (*CreateResponse, error) {
+	response := &CreateResponse{}
+	err := e.HttpClient.SendPostRequest("Create", request, response)
 	return response, err
 }

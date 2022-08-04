@@ -8,9 +8,6 @@ import (
 	"time"
 )
 
-// создание клиента
-// Универсальный вызов
-
 const (
 	baseURL = "https://api.m3o.com/v1/contact/"
 	token   = "YWJkZGJkYzYtNTAzNS00ZGU2LTlmMDgtNzQ2YTQ3NzM1YTBl"
