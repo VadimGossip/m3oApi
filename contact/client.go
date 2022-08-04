@@ -3,7 +3,6 @@ package contact
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -13,7 +12,7 @@ import (
 // Универсальный вызов
 
 const (
-	baseURL = "https://api.facest.io/v1/contact/"
+	baseURL = "https://api.m3o.com/v1/contact/"
 	token   = "YWJkZGJkYzYtNTAzNS00ZGU2LTlmMDgtNzQ2YTQ3NzM1YTBl"
 )
 
@@ -34,7 +33,7 @@ func NewHttpClient(time time.Duration) *Client {
 }
 
 func (c *Client) SendPostRequest(endpoint string, request, response interface{}) error {
-	url := c.baseURL + "/" + endpoint
+	url := c.baseURL + endpoint
 
 	reqBytes, err := json.Marshal(&request)
 	if err != nil {
@@ -42,7 +41,6 @@ func (c *Client) SendPostRequest(endpoint string, request, response interface{})
 	}
 
 	req, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(reqBytes))
-	fmt.Println(string(reqBytes))
 	if err != nil {
 		return err
 	}
@@ -61,7 +59,7 @@ func (c *Client) SendPostRequest(endpoint string, request, response interface{})
 	if err != nil {
 		return err
 	}
-	fmt.Println(string(body))
+
 	err = json.Unmarshal(body, &response)
 	if err != nil {
 		return err
