@@ -3,6 +3,7 @@ package contact
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -41,7 +42,7 @@ func (c *Client) SendPostRequest(endpoint string, request, response interface{})
 	}
 
 	req, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(reqBytes))
-
+	fmt.Println(string(reqBytes))
 	if err != nil {
 		return err
 	}
@@ -60,9 +61,11 @@ func (c *Client) SendPostRequest(endpoint string, request, response interface{})
 	if err != nil {
 		return err
 	}
+	fmt.Println(string(body))
 	err = json.Unmarshal(body, &response)
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
