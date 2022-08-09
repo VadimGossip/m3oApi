@@ -10,7 +10,7 @@ import (
 
 const (
 	baseURL = "https://api.m3o.com/v1/contact/"
-	token   = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+	token   = "MjBhNjA5YzMtNDFiYi00NDJjLTkyZTItZmQyNTE4MjM0MzBj"
 )
 
 type Client struct {
