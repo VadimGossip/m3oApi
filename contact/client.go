@@ -61,6 +61,5 @@ func (c *Client) SendPostRequest(endpoint string, request, response interface{})
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
