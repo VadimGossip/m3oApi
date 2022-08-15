@@ -10,7 +10,6 @@ import (
 
 const (
 	baseURL = "https://api.m3o.com/v1/contact/"
-	token   = "your_token"
 )
 
 type Client struct {
@@ -19,7 +18,7 @@ type Client struct {
 	HttpClient *http.Client
 }
 
-func NewHttpClient(time time.Duration) *Client {
+func NewHttpClient(time time.Duration, token string) *Client {
 	return &Client{
 		baseURL: baseURL,
 		token:   token,
