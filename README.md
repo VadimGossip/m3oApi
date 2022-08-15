@@ -12,7 +12,7 @@ import (
 
 
 func main()  {
-	engine := contact.NewEngine()
+	engine := contact.NewEngine("your_pesonal_m3oApi_token")
 
 	createReq := contact.CreateRequest{
 		Name:         "Vadim",

@@ -8,17 +8,13 @@ import (
 	"time"
 )
 
-const (
-	baseURL = "https://api.m3o.com/v1/contact/"
-)
-
 type Client struct {
 	baseURL    string
 	token      string
 	HttpClient *http.Client
 }
 
-func NewHttpClient(time time.Duration, token string) *Client {
+func NewHttpClient(baseURL string, token string, time time.Duration) *Client {
 	return &Client{
 		baseURL: baseURL,
 		token:   token,

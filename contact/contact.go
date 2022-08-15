@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+const (
+	contactApiURL = "https://api.m3o.com/v1/contact/"
+)
+
 type Engine struct {
 	HttpClient *Client
 }
@@ -119,8 +123,8 @@ type DeleteRequest struct {
 type DeleteResponse struct {
 }
 
-func NewEngine() *Engine {
-	return &Engine{HttpClient: NewHttpClient(time.Minute)}
+func NewEngine(token string) *Engine {
+	return &Engine{HttpClient: NewHttpClient(contactApiURL, token, time.Minute)}
 }
 
 func (e *Engine) CreateContact(request *CreateRequest) (*CreateResponse, error) {
